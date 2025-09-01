@@ -81,3 +81,11 @@ class GitHubDataCollector:
 
         commits = []
         page = 1
+
+        # GitHub paginates results, so we need to fetch multiple pages
+        while page <= 5:  # Limiting to 5 pages to avoid hitting API limits
+            params = {
+                'since': since_date,
+                'page': page,
+                'per_page': 100
+            }
