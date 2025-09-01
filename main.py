@@ -313,3 +313,10 @@ class LSTMTestPredictor(nn.Module):
             nn.Dropout(dropout),
             nn.Linear(hidden_size // 2, 2)
         )
+
+    def forward(self, x):
+        lstm_out, (hn, cn) = self.lstm(x)
+        # Use the final hidden state for classification
+        last_hidden = hn[-1]
+        output = self.classifier(last_hidden)
+        return output
