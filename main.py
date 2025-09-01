@@ -875,3 +875,7 @@ class TestFailurePredictionFramework:
         print(
             f"Temporal Coverage: {dataset_info['temporal_coverage']['start_date'][:10]} to {dataset_info['temporal_coverage']['end_date'][:10]}")
 
+        print(f"\n🏆 MODEL PERFORMANCE COMPARISON")
+        print("=" * 60)
+        model_results = research_report['experimental_results']['model_performance']
+
