@@ -248,3 +248,30 @@ class DeepTestPredictor(nn.Module):
     We're essentially learning a function that maps test characteristics to
     failure probability.
     """
+
+    def __init__(self, input_dim, hidden_dim=128, num_layers=3, dropout_rate=0.3):
+        super(DeepTestPredictor, self).__init__()
+
+        self.input_dim = input_dim
+        self.hidden_dim = hidden_dim
+
+        # Building the network layer by layer
+        layers = []
+        current_dim = input_dim
+
+        for i in range(num_layers):
+            # Linear transformation
+            layers.append(nn.Linear(current_dim, hidden_dim))
+            # Batch normalization helps with training stability
+            layers.append(nn.BatchNorm1d(hidden_dim))
+            # ReLU activation - simple but effective
+            layers.append(nn.ReLU())
+            # Dropout prevents overfitting to training data
+            layers.append(nn.Dropout(dropout_rate))
+            current_dim = hidden_dim
+
+        # Final output layer - two classes (pass/fail)
+        layers.append(nn.Linear(hidden_dim, 2))
+        layers.append(nn.Softmax(dim=1))
+
+        self.network = nn.Sequential(*layers)
