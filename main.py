@@ -926,3 +926,11 @@ class TestFailurePredictionFramework:
         for contrib in contributions['practical_contributions']:
             print(f"   • {contrib}")
 
+        print(f"\n⭐ RESEARCH QUALITY ASSESSMENT")
+        print("=" * 60)
+        significance = research_report['research_significance']
+        print(f"Novelty Score: {significance['novelty_assessment']}/10.0")
+        print(f"Impact Assessment: {significance['impact_potential']}")
+        print(f"Technical Level: {significance['technical_sophistication']}")
+        print(f"Reproducibility: {significance['reproducibility_score']}")
+
