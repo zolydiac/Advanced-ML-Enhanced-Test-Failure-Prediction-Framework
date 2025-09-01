@@ -682,3 +682,6 @@ class TestFailurePredictionFramework:
 
         # Train all models and get performance metrics
         training_results = self.ensemble_predictor.train(X, y)
+
+        # Analyze which features are most important for prediction
+        feature_analysis = self.analyze_feature_importance(X, y, feature_columns)
