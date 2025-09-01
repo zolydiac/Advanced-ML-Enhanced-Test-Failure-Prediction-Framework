@@ -461,3 +461,5 @@ class EnsemblePredictor:
         except Exception as e:
             print(f"Issue with deep learning model training: {e}")
             deep_scores = {'deep_nn': {'mean_score': 0.5, 'std_score': 0.0}}
+
+        return deep_scores
