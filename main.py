@@ -472,3 +472,5 @@ class EnsemblePredictor:
         differences are statistically significant. The Wilcoxon test helps
         us determine if one model is genuinely better than another.
         """
+        model_names = list(results.keys())
+        comparisons = {}
