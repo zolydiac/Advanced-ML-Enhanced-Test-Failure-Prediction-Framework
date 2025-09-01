@@ -134,3 +134,7 @@ class GitHubDataCollector:
                 # Test-related commits might indicate ongoing test maintenance issues
                 commit_info['is_test_related'] = any(keyword in message_lower for keyword in
                                                      ['test', 'spec', 'junit', 'selenium', 'cypress', 'jest'])
+
+                # Bug fix commits often correlate with test failures
+                commit_info['is_bugfix'] = any(keyword in message_lower for keyword in
+                                               ['fix', 'bug', 'error', 'issue', 'patch'])
