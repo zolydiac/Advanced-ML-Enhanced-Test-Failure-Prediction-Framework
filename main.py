@@ -863,3 +863,7 @@ class TestFailurePredictionFramework:
 
         # Generate the comprehensive research report
         research_report = framework.generate_research_report()
+
+        # Display results in a professional, academic format
+        print(f"\n📊 EXPERIMENTAL RESULTS OVERVIEW")
+        print("=" * 60)
