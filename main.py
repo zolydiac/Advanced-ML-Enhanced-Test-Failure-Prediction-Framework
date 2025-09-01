@@ -149,3 +149,12 @@ class GitHubDataCollector:
             continue
 
     return pd.DataFrame(commit_data)
+
+
+class TestFeatureEngineering:
+    """
+    Transforms raw test data into features that machine learning models can use effectively.
+
+    The art of feature engineering: taking messy real-world data and finding the signals
+    that actually matter for prediction. This is where domain expertise really helps.
+    """
