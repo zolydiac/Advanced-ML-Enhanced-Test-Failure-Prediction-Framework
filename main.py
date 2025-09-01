@@ -706,3 +706,4 @@ class TestFailurePredictionFramework:
             'feature_analysis': feature_analysis,
             'research_impact': self.summarize_research_contributions()
         }
+        return evaluation_report
