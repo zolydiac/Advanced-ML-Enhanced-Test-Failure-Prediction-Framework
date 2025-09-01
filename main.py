@@ -214,3 +214,11 @@ class TestFeatureEngineering:
                 'xpath_complexity': 0,
                 'wait_statements': 0
             }
+        lines = test_code.split('\n')
+        # Approximate McCabe complexity - counts decision points in code
+        # More decision points = more ways for test to go wrong
+        decision_keywords = ['if', 'elif', 'while', 'for', 'try', 'except', 'case']
+        complexity = 1  # Start at 1 for the base path
+        for line in lines:
+            for keyword in decision_keywords:
+                complexity += line.count(keyword)
