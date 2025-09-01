@@ -544,3 +544,11 @@ class TestFailurePredictionFramework:
     feature engineering, model training, and evaluation. Think of it as
     the conductor of our machine learning orchestra.
     """
+
+    def __init__(self, github_token=None):
+        self.github_collector = GitHubDataCollector(github_token)
+        self.feature_engineer = TestFeatureEngineering()
+        self.ensemble_predictor = EnsemblePredictor()
+
+        self.experimental_data = None
+        self.results_cache = {}
