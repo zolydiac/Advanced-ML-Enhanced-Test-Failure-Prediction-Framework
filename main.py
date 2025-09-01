@@ -748,3 +748,5 @@ class TestFailurePredictionFramework:
                         rf_importance) else 0,
                     'rank_mi': int(np.argsort(mutual_info)[::-1].tolist().index(i) + 1) if i < len(mutual_info) else 0
                 }
+
+            return feature_analysis
