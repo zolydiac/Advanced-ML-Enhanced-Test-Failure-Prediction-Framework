@@ -59,3 +59,14 @@ class GitHubDataCollector:
         self.github_token = github_token
         self.headers = {'Authorization': f'token {github_token}'} if github_token else {}
         self.rate_limit_remaining = 5000
+
+    def fetch_repository_commits(self, repo_url, days_back=365):
+        """
+        Grab commit history from a GitHub repo. Each commit tells us something
+        about how the codebase is evolving, which helps predict test stability.
+
+        We're looking for patterns like:
+        - Frequent commits often correlate with test instability
+        - Certain authors might write more fragile tests
+        - Time of day/week affects test reliability
+        """
