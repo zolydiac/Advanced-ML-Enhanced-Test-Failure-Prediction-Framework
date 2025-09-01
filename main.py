@@ -934,3 +934,10 @@ class TestFailurePredictionFramework:
         print(f"Technical Level: {significance['technical_sophistication']}")
         print(f"Reproducibility: {significance['reproducibility_score']}")
 
+        print(f"\n📚 PUBLICATION READINESS EVALUATION")
+        print("=" * 60)
+        pub_potential = research_report['publication_potential']
+        print(f"Target Conferences: {', '.join(pub_potential['target_conferences'])}")
+        print(f"Target Journals: {', '.join(pub_potential['target_journals'])}")
+        print(f"Acceptance Likelihood: {pub_potential['estimated_acceptance_probability']}")
+
