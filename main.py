@@ -577,3 +577,9 @@ class TestFailurePredictionFramework:
             'integration': {'weight': 0.25, 'base_failure_rate': 0.12},  # Integration tests more flaky
             'e2e': {'weight': 0.15, 'base_failure_rate': 0.18}  # End-to-end tests most fragile
         }
+        for i in range(n_samples):
+            # Choose test category based on realistic distributions
+            category = np.random.choice(
+                list(test_categories.keys()),
+                p=[cat['weight'] for cat in test_categories.values()]
+            )
