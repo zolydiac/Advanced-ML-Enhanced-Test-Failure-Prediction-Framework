@@ -731,3 +731,6 @@ class TestFailurePredictionFramework:
                 rf_importance = self.ensemble_predictor.models['random_forest'].feature_importances_
             else:
                 rf_importance = np.zeros(len(selected_feature_names))
+
+            # Calculate mutual information - another way to measure feature importance
+            mutual_info = mutual_info_classif(X_selected, y, random_state=42)
