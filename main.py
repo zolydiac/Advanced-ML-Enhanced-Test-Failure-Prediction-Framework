@@ -734,3 +734,7 @@ class TestFailurePredictionFramework:
 
             # Calculate mutual information - another way to measure feature importance
             mutual_info = mutual_info_classif(X_selected, y, random_state=42)
+
+            # Combine the analyses
+            feature_analysis = {}
+            n_features = min(len(selected_feature_names), len(rf_importance), len(mutual_info))
