@@ -721,3 +721,7 @@ class TestFailurePredictionFramework:
             # Get the processed features that were actually used in training
             X_scaled = self.ensemble_predictor.scaler.transform(X)
             X_selected = self.ensemble_predictor.feature_selector.transform(X_scaled)
+
+            # Find out which features were selected
+            selected_indices = self.ensemble_predictor.feature_selector.get_support(indices=True)
+            selected_feature_names = [feature_names[i] for i in selected_indices if i < len(feature_names)]
