@@ -764,3 +764,12 @@ class TestFailurePredictionFramework:
         This is important for academic applications - we need to clearly
         articulate how our work advances the state of knowledge.
         """
+        return {
+
+            'theoretical_contributions': [
+                "Novel ensemble approach that combines traditional ML with deep learning for test failure prediction",
+                "Comprehensive temporal feature engineering methodology specifically designed for software testing",
+                "Statistical framework for rigorous model comparison in software engineering research contexts"
+            ],
+
+        }
