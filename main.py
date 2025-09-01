@@ -482,3 +482,30 @@ class EnsemblePredictor:
                     scores2 = results[model2]['scores']
 
                     # Wilcoxon signed-rank test - standard for comparing paired samples
+                    try:
+                        statistic, p_value = stats.wilcoxon(scores1, scores2)
+
+                        comparisons[f"{model1}_vs_{model2}"] = {
+                            'statistic': statistic,
+                            'p_value': p_value,
+                            'significant': p_value < 0.05,  # Standard significance threshold
+                            'effect_size': np.mean(scores1) - np.mean(scores2)
+                        }
+                    except:
+                        # Sometimes the test fails (e.g., identical scores)
+                        comparisons[f"{model1}_vs_{model2}"] = {
+                            'statistic': 0,
+                            'p_value': 1.0,
+                            'significant': False,
+                            'effect_size': 0
+                        }
+
+         return comparisons
+
+    def train(self, X, y):
+        """
+        Main training function that orchestrates everything.
+
+        This is where all the pieces come together: data preprocessing,
+        model training, and evaluation.
+        """
