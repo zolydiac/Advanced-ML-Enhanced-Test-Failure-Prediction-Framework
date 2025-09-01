@@ -37,3 +37,9 @@ import warnings
 from scipy import stats
 from collections import defaultdict
 warnings.filterwarnings('ignore')
+
+# Setting seeds for reproducible results - important for research integrity
+np.random.seed(42)
+torch.manual_seed(42)
+if torch.cuda.is_available():
+    torch.cuda.manual_seed(42)
