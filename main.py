@@ -422,3 +422,7 @@ class EnsemblePredictor:
             # Use the same preprocessing as the sklearn models
             X_scaled = self.scaler.transform(X)
             X_selected = self.feature_selector.transform(X_scaled)
+
+            # Convert to PyTorch tensors - deep learning frameworks love tensors
+            X_tensor = torch.FloatTensor(X_selected)
+            y_tensor = torch.LongTensor(y)
