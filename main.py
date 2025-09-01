@@ -796,3 +796,7 @@ class TestFailurePredictionFramework:
         This is the culmination of all our work - a professional report that
         demonstrates the research quality and impact of the project.
         """
+        print("\nGenerating comprehensive research report...")
+
+        # Run the full experimental evaluation
+        results = self.run_comprehensive_evaluation()
