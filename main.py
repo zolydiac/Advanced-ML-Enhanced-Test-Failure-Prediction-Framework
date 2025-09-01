@@ -886,3 +886,7 @@ class TestFailurePredictionFramework:
                 std = metrics.get('std_score', 0)
                 print(f"  {model_name.replace('_', ' ').title():20s}: {score:.3f} ± {std:.3f}")
 
+        print(f"\n📈 STATISTICAL SIGNIFICANCE ANALYSIS")
+        print("=" * 60)
+        statistical_results = research_report['experimental_results']['statistical_analysis']
+
