@@ -849,3 +849,10 @@ class TestFailurePredictionFramework:
         This is designed to impress admissions committees by showing both
         technical depth and practical applicability.
         """
+
+        print("=" * 80)
+        print("🎓 MACHINE LEARNING FRAMEWORK FOR TEST FAILURE PREDICTION")
+        print("   Research Prototype for University of Tokyo Masters Application")
+        print("   Author: Harrison King | University of Kent Canterbury")
+        print("   Research Area: Applied ML for Software Engineering")
+        print("=" * 80)
