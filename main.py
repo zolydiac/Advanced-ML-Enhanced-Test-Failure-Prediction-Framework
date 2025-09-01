@@ -627,3 +627,18 @@ class TestFailurePredictionFramework:
 
             # Generate realistic failure probability based on multiple factors
             base_failure_prob = test_categories[category]['base_failure_rate']
+
+            # Risk factors that increase failure probability
+            risk_multiplier = 1.0
+            if test_record['commits_last_7d'] > 5:
+                risk_multiplier += 0.5  # Lots of recent changes
+            if test_record['flakiness_score'] > 0.3:
+                risk_multiplier += 0.3  # History of flakiness
+            if test_record['cyclomatic_complexity'] > 10:
+                risk_multiplier += 0.4  # Complex test logic
+            if test_record['previous_30d_failure_rate'] > 0.2:
+                risk_multiplier += 0.2  # Recent failures
+            if test_record['maintenance_debt'] > 1.0:
+                risk_multiplier += 0.3  # Needs maintenance
+            if test_record['is_holiday_period']:
+                risk_multiplier += 0.15  # Holiday deployments are riskier
