@@ -670,3 +670,7 @@ class TestFailurePredictionFramework:
         This is the main research contribution: a thorough evaluation that shows
         our approach works and is statistically sound.
         """
+        if self.experimental_data is None:
+            self.experimental_data = self.generate_realistic_dataset(2500)
+
+        print("\nRunning comprehensive experimental evaluation...")
