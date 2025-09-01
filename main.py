@@ -418,3 +418,7 @@ class EnsemblePredictor:
         The training process: show the network examples of tests and their outcomes,
         and let it learn the underlying patterns through backpropagation.
         """
+        try:
+            # Use the same preprocessing as the sklearn models
+            X_scaled = self.scaler.transform(X)
+            X_selected = self.feature_selector.transform(X_scaled)
