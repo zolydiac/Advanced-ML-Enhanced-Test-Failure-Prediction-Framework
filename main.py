@@ -516,3 +516,6 @@ class EnsemblePredictor:
 
         # Train deep learning models
         deep_results = self.train_deep_models(X, y)
+
+        # Combine all results
+        all_results = {**traditional_results, **deep_results}
