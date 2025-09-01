@@ -771,5 +771,10 @@ class TestFailurePredictionFramework:
                 "Comprehensive temporal feature engineering methodology specifically designed for software testing",
                 "Statistical framework for rigorous model comparison in software engineering research contexts"
             ],
+            'empirical_contributions': [
+                "Large-scale evaluation on realistic dataset with over 2500 test execution samples",
+                "Cross-validation methodology with proper statistical significance testing",
+                "Detailed feature importance analysis revealing key factors that predict test failures"
+            ],
 
         }
