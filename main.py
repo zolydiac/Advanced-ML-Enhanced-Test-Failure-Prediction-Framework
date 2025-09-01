@@ -356,3 +356,12 @@ class EnsemblePredictor:
         self.feature_selector = SelectKBest(score_func=f_classif, k=20)
         self.is_trained = False
         self.performance_metrics = {}
+
+    def train_sklearn_models(self, X, y):
+        """
+        Train the traditional machine learning models with proper validation.
+
+        Using cross-validation here because it gives us more reliable performance
+        estimates than a single train/test split. The idea is to train and test
+        on different data splits multiple times.
+        """
