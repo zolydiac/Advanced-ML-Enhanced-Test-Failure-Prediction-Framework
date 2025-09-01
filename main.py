@@ -463,3 +463,12 @@ class EnsemblePredictor:
             deep_scores = {'deep_nn': {'mean_score': 0.5, 'std_score': 0.0}}
 
         return deep_scores
+
+    def statistical_comparison(self, results):
+        """
+        Compare model performances using proper statistical tests.
+
+        It's not enough to just look at average scores - we need to know if
+        differences are statistically significant. The Wilcoxon test helps
+        us determine if one model is genuinely better than another.
+        """
