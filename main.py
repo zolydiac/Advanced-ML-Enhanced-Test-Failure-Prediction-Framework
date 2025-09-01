@@ -509,3 +509,7 @@ class EnsemblePredictor:
         This is where all the pieces come together: data preprocessing,
         model training, and evaluation.
         """
+        print("Training ensemble of models with cross-validation...")
+
+        # Train traditional ML models
+        traditional_results = self.train_sklearn_models(X, y)
