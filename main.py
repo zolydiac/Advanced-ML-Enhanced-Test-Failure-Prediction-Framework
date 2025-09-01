@@ -43,3 +43,14 @@ np.random.seed(42)
 torch.manual_seed(42)
 if torch.cuda.is_available():
     torch.cuda.manual_seed(42)
+
+
+class GitHubDataCollector:
+    """
+    Collects real data from GitHub repositories to understand how code changes
+    affect test stability. This gives us authentic patterns instead of just
+    synthetic data.
+
+    The key insight: tests don't fail randomly - they fail in patterns related
+    to code changes, developer behavior, and timing.
+    """
