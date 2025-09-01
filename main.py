@@ -674,3 +674,6 @@ class TestFailurePredictionFramework:
             self.experimental_data = self.generate_realistic_dataset(2500)
 
         print("\nRunning comprehensive experimental evaluation...")
+        # Prepare the data for machine learning
+        feature_columns = [col for col in self.experimental_data.columns
+                           if col not in ['test_id', 'category', 'timestamp', 'test_failed', 'browser_type']]
