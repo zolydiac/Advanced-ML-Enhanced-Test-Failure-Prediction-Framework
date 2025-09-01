@@ -128,3 +128,5 @@ class GitHubDataCollector:
                     'additions': 0,
                     'deletions': 0
                 }
+                # Analyze commit messages for patterns that matter to testing
+                message_lower = commit_info['message'].lower()
