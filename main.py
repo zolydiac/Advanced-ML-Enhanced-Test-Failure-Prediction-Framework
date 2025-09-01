@@ -437,3 +437,13 @@ class EnsemblePredictor:
             deep_nn = DeepTestPredictor(input_dim=X_selected.shape[1])
             optimizer = optim.Adam(deep_nn.parameters(), lr=0.001)  # Adam is usually a good choice
             criterion = nn.CrossEntropyLoss()
+
+            # Training loop - this is where the learning happens
+            deep_nn.train()
+            for epoch in range(50):  # 50 epochs is reasonable for this size problem
+                for batch_X, batch_y in train_loader:
+                    optimizer.zero_grad()  # Reset gradients
+                    outputs = deep_nn(batch_X)  # Forward pass
+                    loss = criterion(outputs, batch_y)  # Calculate loss
+                    loss.backward()  # Backward pass
+                    optimizer.step()  # Update weights
