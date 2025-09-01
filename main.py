@@ -646,3 +646,10 @@ class TestFailurePredictionFramework:
             # Monday morning effect - more issues after weekends
             if test_record['day_of_week'] == 0:
                 risk_multiplier += 0.2
+
+            failure_probability = min(base_failure_prob * risk_multiplier, 0.85)
+            test_record['test_failed'] = int(np.random.random() < failure_probability)
+
+            data.append(test_record)
+
+        df = pd.DataFrame(data)
