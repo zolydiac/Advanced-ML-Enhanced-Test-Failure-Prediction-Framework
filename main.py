@@ -409,3 +409,12 @@ class EnsemblePredictor:
                 'random_forest': {'mean_score': 0.5, 'std_score': 0.0, 'scores': [0.5] * 5},
                 'gradient_boosting': {'mean_score': 0.5, 'std_score': 0.0, 'scores': [0.5] * 5}
             }
+
+    def train_deep_models(self, X, y):
+        """
+        Train the neural network models. This is where things get interesting -
+        deep learning can capture patterns that traditional ML might miss.
+
+        The training process: show the network examples of tests and their outcomes,
+        and let it learn the underlying patterns through backpropagation.
+        """
