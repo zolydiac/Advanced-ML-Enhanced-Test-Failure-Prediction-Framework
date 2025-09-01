@@ -500,7 +500,7 @@ class EnsemblePredictor:
                             'effect_size': 0
                         }
 
-         return comparisons
+            return comparisons
 
     def train(self, X, y):
         """
@@ -534,3 +534,13 @@ class EnsemblePredictor:
         }
 
         return self.performance_metrics
+
+
+class TestFailurePredictionFramework:
+    """
+    The main framework that brings everything together.
+
+    This is the user-facing interface that coordinates data collection,
+    feature engineering, model training, and evaluation. Think of it as
+    the conductor of our machine learning orchestra.
+    """
