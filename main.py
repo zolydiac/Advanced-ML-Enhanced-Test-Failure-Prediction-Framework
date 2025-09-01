@@ -275,3 +275,6 @@ class DeepTestPredictor(nn.Module):
         layers.append(nn.Softmax(dim=1))
 
         self.network = nn.Sequential(*layers)
+
+    def forward(self, x):
+        return self.network(x)
