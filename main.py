@@ -867,3 +867,11 @@ class TestFailurePredictionFramework:
         # Display results in a professional, academic format
         print(f"\n📊 EXPERIMENTAL RESULTS OVERVIEW")
         print("=" * 60)
+
+        dataset_info = research_report['experimental_results']['dataset_summary']
+        print(f"Dataset Size: {dataset_info['total_samples']:,} test execution samples")
+        print(f"Feature Space: {dataset_info['feature_count']} engineered features")
+        print(f"Class Balance: {dataset_info['class_distribution']['failure_rate']:.1%} failure rate")
+        print(
+            f"Temporal Coverage: {dataset_info['temporal_coverage']['start_date'][:10]} to {dataset_info['temporal_coverage']['end_date'][:10]}")
+
