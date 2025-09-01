@@ -142,3 +142,10 @@ class GitHubDataCollector:
                 # Refactoring can break tests even when functionality stays the same
                 commit_info['is_refactor'] = any(keyword in message_lower for keyword in
                                                  ['refactor', 'cleanup', 'improve', 'optimize'])
+            commit_data.append(commit_info)
+
+            except KeyError:
+            # Some commits might have malformed data, just skip them
+            continue
+
+    return pd.DataFrame(commit_data)
