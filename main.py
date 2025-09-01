@@ -677,3 +677,5 @@ class TestFailurePredictionFramework:
         # Prepare the data for machine learning
         feature_columns = [col for col in self.experimental_data.columns
                            if col not in ['test_id', 'category', 'timestamp', 'test_failed', 'browser_type']]
+        X = self.experimental_data[feature_columns].fillna(0).values
+        y = self.experimental_data['test_failed'].values
