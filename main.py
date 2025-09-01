@@ -278,3 +278,15 @@ class DeepTestPredictor(nn.Module):
 
     def forward(self, x):
         return self.network(x)
+
+
+class LSTMTestPredictor(nn.Module):
+    """
+    LSTM model for capturing sequential patterns in test executions.
+
+    The insight: test failures aren't independent events. If a test failed yesterday,
+    that affects the probability it fails today. LSTMs are good at learning these
+    temporal dependencies.
+
+    Think of it like predicting weather - past conditions help predict future ones.
+    """
