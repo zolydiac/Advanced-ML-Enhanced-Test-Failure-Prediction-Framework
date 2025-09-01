@@ -941,3 +941,8 @@ class TestFailurePredictionFramework:
         print(f"Target Journals: {', '.join(pub_potential['target_journals'])}")
         print(f"Acceptance Likelihood: {pub_potential['estimated_acceptance_probability']}")
 
+        print(f"\n🔮 FUTURE RESEARCH DIRECTIONS")
+        print("=" * 60)
+        for direction in research_report['future_research_directions']:
+            print(f"   • {direction}")
+
