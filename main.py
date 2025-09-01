@@ -305,3 +305,11 @@ class LSTMTestPredictor(nn.Module):
             dropout=dropout,
             batch_first=True
         )
+
+        # Classification head - turns LSTM output into pass/fail prediction
+        self.classifier = nn.Sequential(
+            nn.Linear(hidden_size, hidden_size // 2),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(hidden_size // 2, 2)
+        )
