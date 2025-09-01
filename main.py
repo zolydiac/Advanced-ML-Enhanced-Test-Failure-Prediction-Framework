@@ -718,3 +718,6 @@ class TestFailurePredictionFramework:
         from sklearn.feature_selection import mutual_info_classif
 
         try:
+            # Get the processed features that were actually used in training
+            X_scaled = self.ensemble_predictor.scaler.transform(X)
+            X_selected = self.ensemble_predictor.feature_selector.transform(X_scaled)
