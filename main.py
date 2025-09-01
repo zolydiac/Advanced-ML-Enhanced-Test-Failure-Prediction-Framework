@@ -896,3 +896,7 @@ class TestFailurePredictionFramework:
             significance = "✅ Statistically Significant" if stats['significant'] else "❌ Not Significant"
             print(f"  {models:35s}: p = {stats['p_value']:.4f} | {significance}")
 
+        print(f"\n🔍 MOST IMPORTANT PREDICTIVE FEATURES")
+        print("=" * 60)
+        feature_results = research_report['experimental_results']['feature_analysis']
+
