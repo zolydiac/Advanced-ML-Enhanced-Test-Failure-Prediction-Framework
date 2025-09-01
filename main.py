@@ -552,3 +552,16 @@ class TestFailurePredictionFramework:
 
         self.experimental_data = None
         self.results_cache = {}
+
+    def generate_realistic_dataset(self, n_samples=2000):
+        """
+        Create a synthetic dataset that mirrors real-world testing patterns.
+
+        Why synthetic data? Real test failure data is often proprietary and hard
+        to get. But we can simulate realistic patterns based on what we know
+        about how tests fail in practice.
+
+        The key is making the data realistic enough that models trained on it
+        would work on real data.
+        """
+        np.random.seed(42)  # Ensures reproducible results
