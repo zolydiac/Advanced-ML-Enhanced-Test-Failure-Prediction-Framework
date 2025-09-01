@@ -474,3 +474,11 @@ class EnsemblePredictor:
         """
         model_names = list(results.keys())
         comparisons = {}
+
+        for i, model1 in enumerate(model_names):
+            for model2 in model_names[i + 1:]:
+                if 'scores' in results[model1] and 'scores' in results[model2]:
+                    scores1 = results[model1]['scores']
+                    scores2 = results[model2]['scores']
+
+                    # Wilcoxon signed-rank test - standard for comparing paired samples
