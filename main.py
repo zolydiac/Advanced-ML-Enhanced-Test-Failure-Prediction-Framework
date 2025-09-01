@@ -70,3 +70,14 @@ class GitHubDataCollector:
         - Certain authors might write more fragile tests
         - Time of day/week affects test reliability
         """
+
+        # Parse the GitHub URL to get owner and repo name
+        repo_parts = repo_url.replace('https://github.com/', '').split('/')
+        owner, repo = repo_parts[0], repo_parts[1]
+
+        # Only look at recent commits - older ones are less relevant
+        since_date = (datetime.now() - timedelta(days=days_back)).isoformat()
+        api_url = f"https://api.github.com/repos/{owner}/{repo}/commits"
+
+        commits = []
+        page = 1
