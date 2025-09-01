@@ -707,3 +707,11 @@ class TestFailurePredictionFramework:
             'research_impact': self.summarize_research_contributions()
         }
         return evaluation_report
+
+    def analyze_feature_importance(self, X, y, feature_names):
+        """
+        Figure out which features are most important for predicting test failures.
+
+        This is crucial for understanding WHY tests fail, not just predicting
+        that they will fail. It helps developers know where to focus their efforts.
+        """
