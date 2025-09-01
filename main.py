@@ -114,3 +114,17 @@ class GitHubDataCollector:
         My hypothesis: certain types of commits (bug fixes, refactors, test changes)
         have different impacts on test stability. Let's capture those patterns.
         """
+        commit_data = []
+
+        for commit in commits:
+            try:
+                commit_info = {
+                    'sha': commit['sha'][:8],  # Just the short hash for readability
+                    'timestamp': pd.to_datetime(commit['commit']['author']['date']),
+                    'message': commit['commit']['message'],
+                    'author': commit['commit']['author']['name'],
+                    # Note: Getting file change counts would require additional API calls
+                    'files_changed': 0,
+                    'additions': 0,
+                    'deletions': 0
+                }
