@@ -89,3 +89,28 @@ class GitHubDataCollector:
                 'page': page,
                 'per_page': 100
             }
+            try:
+                response = requests.get(api_url, headers=self.headers, params=params, timeout=10)
+                if response.status_code != 200:
+                    break
+
+                page_commits = response.json()
+                if not page_commits:
+                    break
+
+                commits.extend(page_commits)
+                page += 1
+
+            except Exception as e:
+                print(f"Had trouble fetching from GitHub API: {e}")
+                break
+
+        return commits
+
+    def analyze_commit_patterns(self, commits):
+        """
+        Extract meaningful insights from commit data that might predict test failures.
+
+        My hypothesis: certain types of commits (bug fixes, refactors, test changes)
+        have different impacts on test stability. Let's capture those patterns.
+        """
