@@ -522,3 +522,15 @@ class EnsemblePredictor:
 
         # Statistical comparison between models
         statistical_tests = self.statistical_comparison(traditional_results)
+
+        self.is_trained = True
+        self.performance_metrics = {
+            'model_performance': all_results,
+            'statistical_comparisons': statistical_tests,
+            'feature_importance': dict(zip(
+                range(self.feature_selector.k),
+                self.feature_selector.scores_[:self.feature_selector.k]
+            ))
+        }
+
+        return self.performance_metrics
