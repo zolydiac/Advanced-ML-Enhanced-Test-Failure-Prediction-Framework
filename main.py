@@ -162,3 +162,55 @@ class TestFeatureEngineering:
     def __init__(self):
         self.temporal_window = 30  # Look at the last 30 days of activity
         self.scaler = StandardScaler()
+
+    def create_temporal_features(self, df):
+        """
+        Time matters a lot in software testing. Tests that fail on Monday morning
+        might be different from tests that fail on Friday afternoon.
+
+        We're capturing patterns like:
+        - Monday deployments often have more issues
+        - Weekend deployments are riskier (less oversight)
+        - Tests run at different times have different failure patterns
+        """
+        df_enhanced = df.copy()
+        df_enhanced['timestamp'] = pd.to_datetime(df_enhanced.get('timestamp', datetime.now()))
+
+        # Basic time features that often matter for test stability
+        df_enhanced['day_of_week'] = df_enhanced['timestamp'].dt.dayofweek
+        df_enhanced['hour_of_day'] = df_enhanced['timestamp'].dt.hour
+        df_enhanced['is_weekend'] = (df_enhanced['day_of_week'] >= 5).astype(int)
+
+        # Rolling window features - looking at recent trends
+        # The idea: a test that's been failing recently is more likely to fail again
+        for window in [7, 14, 30]:
+            df_enhanced[f'failure_rate_{window}d'] = (
+                df_enhanced.get('test_failed', 0)
+                .rolling(window=window, min_periods=1)
+                .mean()
+            )
+
+        # Code change velocity - how fast is the code changing?
+        # Faster changes often mean higher test instability
+        df_enhanced['code_churn_velocity'] = (
+                df_enhanced.get('code_changes_last_week', 0) / 7.0
+        )
+
+        return df_enhanced
+
+    def extract_test_complexity_metrics(self, test_code):
+        """
+        Analyze the actual test code to understand its complexity.
+        More complex tests tend to be more fragile.
+
+        This is based on software metrics research - things like cyclomatic
+        complexity have been shown to correlate with code quality issues.
+        """
+        if not test_code:
+            return {
+                'cyclomatic_complexity': 1,
+                'lines_of_code': 0,
+                'assertion_count': 0,
+                'xpath_complexity': 0,
+                'wait_statements': 0
+            }
