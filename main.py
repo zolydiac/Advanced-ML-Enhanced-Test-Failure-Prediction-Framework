@@ -725,3 +725,9 @@ class TestFailurePredictionFramework:
             # Find out which features were selected
             selected_indices = self.ensemble_predictor.feature_selector.get_support(indices=True)
             selected_feature_names = [feature_names[i] for i in selected_indices if i < len(feature_names)]
+
+            # Get feature importance from trained Random Forest
+            if hasattr(self.ensemble_predictor.models['random_forest'], 'feature_importances_'):
+                rf_importance = self.ensemble_predictor.models['random_forest'].feature_importances_
+            else:
+                rf_importance = np.zeros(len(selected_feature_names))
