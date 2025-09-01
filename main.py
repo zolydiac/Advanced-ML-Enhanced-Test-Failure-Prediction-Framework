@@ -738,3 +738,9 @@ class TestFailurePredictionFramework:
             # Combine the analyses
             feature_analysis = {}
             n_features = min(len(selected_feature_names), len(rf_importance), len(mutual_info))
+
+        for i in range(n_features):
+            feature_name = selected_feature_names[i] if i < len(selected_feature_names) else f"feature_{i}"
+            feature_analysis[feature_name] = {
+                'rf_importance': float(rf_importance[i]) if i < len(rf_importance) else 0.0,
+                '
