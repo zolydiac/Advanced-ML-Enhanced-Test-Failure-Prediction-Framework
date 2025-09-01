@@ -128,6 +128,7 @@ class GitHubDataCollector:
                     'additions': 0,
                     'deletions': 0
                 }
+
                 # Analyze commit messages for patterns that matter to testing
                 message_lower = commit_info['message'].lower()
 
@@ -142,13 +143,14 @@ class GitHubDataCollector:
                 # Refactoring can break tests even when functionality stays the same
                 commit_info['is_refactor'] = any(keyword in message_lower for keyword in
                                                  ['refactor', 'cleanup', 'improve', 'optimize'])
-            commit_data.append(commit_info)
+
+                commit_data.append(commit_info)
 
             except KeyError:
-            # Some commits might have malformed data, just skip them
-            continue
+                # Some commits might have malformed data, just skip them
+                continue
 
-    return pd.DataFrame(commit_data)
+        return pd.DataFrame(commit_data)
 
 
 class TestFeatureEngineering:
@@ -842,7 +844,7 @@ class TestFailurePredictionFramework:
 
         return report
 
-    def main():
+def main():
         """
         Main demonstration function that showcases the complete framework.
 
@@ -960,4 +962,7 @@ class TestFailurePredictionFramework:
         print("   🔄 LSTM Network: Sequential pattern recognition for temporal dependencies")
         print("   ⚖️ Ensemble Integration: Sophisticated voting classifier approach")
         print("   📊 Evaluation Metrics: AUC, Precision, Recall, F1-Score, and Statistical Tests")
+
+if __name__ == "__main__":
+        main()
 
