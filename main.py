@@ -158,3 +158,7 @@ class TestFeatureEngineering:
     The art of feature engineering: taking messy real-world data and finding the signals
     that actually matter for prediction. This is where domain expertise really helps.
     """
+
+    def __init__(self):
+        self.temporal_window = 30  # Look at the last 30 days of activity
+        self.scaler = StandardScaler()
