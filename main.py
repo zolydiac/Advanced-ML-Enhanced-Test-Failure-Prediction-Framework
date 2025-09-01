@@ -653,3 +653,12 @@ class TestFailurePredictionFramework:
             data.append(test_record)
 
         df = pd.DataFrame(data)
+
+        # Apply feature engineering to create additional predictive features
+        df = self.feature_engineer.create_temporal_features(df)
+
+        print(f"Generated {len(df)} test samples with {len(df.columns)} features")
+        print(f"Overall failure rate: {df['test_failed'].mean():.1%}")
+        print(f"Distribution by test type: {df['category'].value_counts().to_dict()}")
+
+        return df
