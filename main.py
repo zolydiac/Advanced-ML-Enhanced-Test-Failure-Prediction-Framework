@@ -583,3 +583,11 @@ class TestFailurePredictionFramework:
                 list(test_categories.keys()),
                 p=[cat['weight'] for cat in test_categories.values()]
             )
+
+            # Generate realistic timestamps with patterns
+            # (more activity during weekdays, etc.)
+            days_offset = np.random.exponential(30)
+            if np.random.random() < 0.3:  # Weekend effect - different patterns
+                days_offset += np.random.uniform(0, 2)
+
+            timestamp = base_timestamp + timedelta(days=days_offset)
