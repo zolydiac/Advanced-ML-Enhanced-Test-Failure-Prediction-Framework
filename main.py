@@ -130,3 +130,7 @@ class GitHubDataCollector:
                 }
                 # Analyze commit messages for patterns that matter to testing
                 message_lower = commit_info['message'].lower()
+
+                # Test-related commits might indicate ongoing test maintenance issues
+                commit_info['is_test_related'] = any(keyword in message_lower for keyword in
+                                                     ['test', 'spec', 'junit', 'selenium', 'cypress', 'jest'])
