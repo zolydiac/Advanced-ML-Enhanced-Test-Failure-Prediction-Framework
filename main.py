@@ -856,3 +856,7 @@ class TestFailurePredictionFramework:
         print("   Author: Harrison King | University of Kent Canterbury")
         print("   Research Area: Applied ML for Software Engineering")
         print("=" * 80)
+
+        # Initialize the complete framework
+        print("\n🚀 Initializing research framework...")
+        framework = TestFailurePredictionFramework()
