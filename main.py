@@ -642,3 +642,7 @@ class TestFailurePredictionFramework:
                 risk_multiplier += 0.3  # Needs maintenance
             if test_record['is_holiday_period']:
                 risk_multiplier += 0.15  # Holiday deployments are riskier
+
+            # Monday morning effect - more issues after weekends
+            if test_record['day_of_week'] == 0:
+                risk_multiplier += 0.2
