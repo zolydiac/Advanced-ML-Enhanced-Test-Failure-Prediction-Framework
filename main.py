@@ -739,8 +739,12 @@ class TestFailurePredictionFramework:
             feature_analysis = {}
             n_features = min(len(selected_feature_names), len(rf_importance), len(mutual_info))
 
-        for i in range(n_features):
-            feature_name = selected_feature_names[i] if i < len(selected_feature_names) else f"feature_{i}"
-            feature_analysis[feature_name] = {
-                'rf_importance': float(rf_importance[i]) if i < len(rf_importance) else 0.0,
-                '
+            for i in range(n_features):
+                feature_name = selected_feature_names[i] if i < len(selected_feature_names) else f"feature_{i}"
+                feature_analysis[feature_name] = {
+                    'rf_importance': float(rf_importance[i]) if i < len(rf_importance) else 0.0,
+                    'mutual_information': float(mutual_info[i]) if i < len(mutual_info) else 0.0,
+                    'rank_rf': int(np.argsort(rf_importance)[::-1].tolist().index(i) + 1) if i < len(
+                        rf_importance) else 0,
+                    'rank_mi': int(np.argsort(mutual_info)[::-1].tolist().index(i) + 1) if i < len(mutual_info) else 0
+                }
