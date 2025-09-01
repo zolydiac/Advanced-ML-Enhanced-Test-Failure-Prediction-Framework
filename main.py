@@ -955,3 +955,9 @@ class TestFailurePredictionFramework:
         print("   📈 Evaluation Layer: Cross-validation + statistical significance testing")
         print("   📋 Reporting Layer: Academic-grade documentation and analysis")
 
+        print(f"\nDeep Learning Architecture:")
+        print("   🔗 Neural Network: Multi-layer perceptron with dropout regularization")
+        print("   🔄 LSTM Network: Sequential pattern recognition for temporal dependencies")
+        print("   ⚖️ Ensemble Integration: Sophisticated voting classifier approach")
+        print("   📊 Evaluation Metrics: AUC, Precision, Recall, F1-Score, and Statistical Tests")
+
