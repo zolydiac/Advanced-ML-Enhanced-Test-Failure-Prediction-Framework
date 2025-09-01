@@ -756,3 +756,11 @@ class TestFailurePredictionFramework:
             # Return reasonable defaults if analysis fails
             return {feature: {'rf_importance': 0.1, 'mutual_information': 0.1, 'rank_rf': 1, 'rank_mi': 1}
                     for feature in feature_names[:5]}
+
+    def summarize_research_contributions(self):
+        """
+        Summarize what this research contributes to the field.
+
+        This is important for academic applications - we need to clearly
+        articulate how our work advances the state of knowledge.
+        """
