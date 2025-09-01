@@ -685,3 +685,24 @@ class TestFailurePredictionFramework:
 
         # Analyze which features are most important for prediction
         feature_analysis = self.analyze_feature_importance(X, y, feature_columns)
+
+        # Create comprehensive evaluation report
+        evaluation_report = {
+            'dataset_summary': {
+                'total_samples': len(self.experimental_data),
+                'feature_count': len(feature_columns),
+                'class_distribution': {
+                    'failed_tests': int(y.sum()),
+                    'passed_tests': int(len(y) - y.sum()),
+                    'failure_rate': float(y.mean())
+                },
+                'temporal_coverage': {
+                    'start_date': self.experimental_data['timestamp'].min().isoformat(),
+                    'end_date': self.experimental_data['timestamp'].max().isoformat()
+                }
+            },
+            'model_performance': training_results['model_performance'],
+            'statistical_analysis': training_results['statistical_comparisons'],
+            'feature_analysis': feature_analysis,
+            'research_impact': self.summarize_research_contributions()
+        }
