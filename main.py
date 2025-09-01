@@ -591,3 +591,36 @@ class TestFailurePredictionFramework:
                 days_offset += np.random.uniform(0, 2)
 
             timestamp = base_timestamp + timedelta(days=days_offset)
+
+            # Generate features based on what we know affects test stability
+            test_record = {
+                'test_id': f"{category}_test_{i:04d}",
+                'category': category,
+                'timestamp': timestamp,
+
+                # Code change patterns - based on empirical software engineering research
+                'commits_last_7d': np.random.poisson(2.5),
+                'lines_changed_ratio': np.random.beta(2, 8),  # Most changes are small
+                'authors_involved': min(np.random.poisson(1.8) + 1, 10),
+
+                # Test complexity - more complex tests tend to be more fragile
+                'cyclomatic_complexity': np.random.gamma(2, 3),
+                'assertion_density': np.random.exponential(0.3),
+                'xpath_complexity': np.random.gamma(1.5, 2) if category == 'e2e' else 0,
+
+                # Historical patterns - past behavior predicts future behavior
+                'previous_30d_failure_rate': np.random.beta(2, 15),
+                'flakiness_score': np.random.beta(1.5, 8),
+                'maintenance_debt': np.random.exponential(0.4),
+
+                # Environmental factors that affect test stability
+                'parallel_execution': np.random.choice([0, 1], p=[0.3, 0.7]),
+                'browser_type': np.random.choice(['chrome', 'firefox', 'edge'],
+                                                 p=[0.6, 0.3, 0.1]) if category == 'e2e' else None,
+                'test_data_dependency': np.random.choice([0, 1], p=[0.7, 0.3]),
+
+                # Temporal patterns - time of day/week matters
+                'time_since_last_run': np.random.exponential(24),  # hours
+                'day_of_week': timestamp.weekday(),
+                'is_holiday_period': int(timestamp.month in [12, 1, 7, 8]),
+            }
