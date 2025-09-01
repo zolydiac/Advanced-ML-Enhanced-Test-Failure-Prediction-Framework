@@ -332,3 +332,27 @@ class EnsemblePredictor:
 
     Together, they're more robust than any individual approach.
     """
+
+    def __init__(self):
+        # Diverse set of models - each has different strengths
+        self.models = {
+            'random_forest': RandomForestClassifier(
+                n_estimators=200,  # Enough trees for good performance
+                max_depth=15,  # Deep enough to capture complexity
+                random_state=42,  # Reproducible results
+                class_weight='balanced'  # Handle imbalanced data
+            ),
+            'gradient_boosting': GradientBoostingClassifier(
+                n_estimators=100,
+                learning_rate=0.1,
+                max_depth=6,
+                random_state=42
+            ),
+            'deep_nn': None,  # Will be initialized during training
+            'lstm': None  # Will be initialized during training
+        }
+
+        self.scaler = StandardScaler()
+        self.feature_selector = SelectKBest(score_func=f_classif, k=20)
+        self.is_trained = False
+        self.performance_metrics = {}
