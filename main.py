@@ -447,3 +447,13 @@ class EnsemblePredictor:
                     loss = criterion(outputs, batch_y)  # Calculate loss
                     loss.backward()  # Backward pass
                     optimizer.step()  # Update weights
+
+            self.models['deep_nn'] = deep_nn
+
+            # Evaluate the trained model
+            deep_nn.eval()
+            with torch.no_grad():
+                predictions = deep_nn(X_tensor)
+                predicted_classes = torch.argmax(predictions, dim=1)
+                accuracy = (predicted_classes == y_tensor).float().mean().item()
+                deep_scores['deep_nn'] = {'mean_score': accuracy, 'std_score': 0.0}
