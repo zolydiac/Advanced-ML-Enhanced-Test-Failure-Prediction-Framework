@@ -841,3 +841,11 @@ class TestFailurePredictionFramework:
         }
 
         return report
+
+    def main():
+        """
+        Main demonstration function that showcases the complete framework.
+
+        This is designed to impress admissions committees by showing both
+        technical depth and practical applicability.
+        """
