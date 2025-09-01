@@ -426,3 +426,7 @@ class EnsemblePredictor:
             # Convert to PyTorch tensors - deep learning frameworks love tensors
             X_tensor = torch.FloatTensor(X_selected)
             y_tensor = torch.LongTensor(y)
+
+            # Create data loader for batch processing
+            dataset = TensorDataset(X_tensor, y_tensor)
+            train_loader = DataLoader(dataset, batch_size=32, shuffle=True)
