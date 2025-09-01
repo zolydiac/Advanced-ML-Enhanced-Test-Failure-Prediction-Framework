@@ -624,3 +624,6 @@ class TestFailurePredictionFramework:
                 'day_of_week': timestamp.weekday(),
                 'is_holiday_period': int(timestamp.month in [12, 1, 7, 8]),
             }
+
+            # Generate realistic failure probability based on multiple factors
+            base_failure_prob = test_categories[category]['base_failure_rate']
