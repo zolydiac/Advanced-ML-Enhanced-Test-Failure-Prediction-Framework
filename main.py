@@ -890,3 +890,9 @@ class TestFailurePredictionFramework:
         print("=" * 60)
         statistical_results = research_report['experimental_results']['statistical_analysis']
 
+        print("Pairwise Model Comparisons (Wilcoxon Signed-Rank Test):")
+        for comparison, stats in statistical_results.items():
+            models = comparison.replace('_vs_', ' vs ').replace('_', ' ').title()
+            significance = "✅ Statistically Significant" if stats['significant'] else "❌ Not Significant"
+            print(f"  {models:35s}: p = {stats['p_value']:.4f} | {significance}")
+
