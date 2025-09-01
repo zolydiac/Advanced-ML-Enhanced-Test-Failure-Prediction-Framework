@@ -513,3 +513,6 @@ class EnsemblePredictor:
 
         # Train traditional ML models
         traditional_results = self.train_sklearn_models(X, y)
+
+        # Train deep learning models
+        deep_results = self.train_deep_models(X, y)
