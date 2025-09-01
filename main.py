@@ -904,3 +904,9 @@ class TestFailurePredictionFramework:
         sorted_features = sorted(feature_results.items(),
                                  key=lambda x: x[1]['rf_importance'], reverse=True)
 
+        print("Top Features for Test Failure Prediction:")
+        for i, (feature, metrics) in enumerate(sorted_features[:8]):
+            rf_score = metrics['rf_importance']
+            mi_score = metrics['mutual_information']
+            print(f"  {i + 1:2d}. {feature.replace('_', ' ').title():30s}: RF={rf_score:.3f}, MI={mi_score:.3f}")
+
