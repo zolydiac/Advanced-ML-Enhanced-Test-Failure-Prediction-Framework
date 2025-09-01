@@ -222,3 +222,15 @@ class TestFeatureEngineering:
         for line in lines:
             for keyword in decision_keywords:
                 complexity += line.count(keyword)
+                # Test-specific metrics that matter for UI testing
+                assertion_count = sum(line.count('assert') for line in lines)
+                xpath_complexity = sum(len(re.findall(r'//\w+', line)) for line in lines)
+                wait_statements = sum(line.count('wait') + line.count('sleep') for line in lines)
+
+                return {
+                    'cyclomatic_complexity': complexity,
+                    'lines_of_code': len([l for l in lines if l.strip()]),
+                    'assertion_count': assertion_count,
+                    'xpath_complexity': xpath_complexity,
+                    'wait_statements': wait_statements
+                }
