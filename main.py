@@ -290,3 +290,18 @@ class LSTMTestPredictor(nn.Module):
 
     Think of it like predicting weather - past conditions help predict future ones.
     """
+
+    def __init__(self, input_size, hidden_size=64, num_layers=2, dropout=0.2):
+        super(LSTMTestPredictor, self).__init__()
+
+        self.hidden_size = hidden_size
+        self.num_layers = num_layers
+
+        # LSTM layer - this is where the temporal magic happens
+        self.lstm = nn.LSTM(
+            input_size=input_size,
+            hidden_size=hidden_size,
+            num_layers=num_layers,
+            dropout=dropout,
+            batch_first=True
+        )
