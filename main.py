@@ -138,3 +138,7 @@ class GitHubDataCollector:
                 # Bug fix commits often correlate with test failures
                 commit_info['is_bugfix'] = any(keyword in message_lower for keyword in
                                                ['fix', 'bug', 'error', 'issue', 'patch'])
+
+                # Refactoring can break tests even when functionality stays the same
+                commit_info['is_refactor'] = any(keyword in message_lower for keyword in
+                                                 ['refactor', 'cleanup', 'improve', 'optimize'])
