@@ -320,3 +320,15 @@ class LSTMTestPredictor(nn.Module):
         last_hidden = hn[-1]
         output = self.classifier(last_hidden)
         return output
+
+
+class EnsemblePredictor:
+    """
+    Combines multiple different models to get better predictions than any single model.
+
+    The ensemble approach: different models capture different aspects of the problem.
+    Random Forest might catch feature interactions, Neural Networks might find
+    non-linear patterns, and Gradient Boosting might handle outliers well.
+
+    Together, they're more robust than any individual approach.
+    """
