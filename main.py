@@ -900,3 +900,7 @@ class TestFailurePredictionFramework:
         print("=" * 60)
         feature_results = research_report['experimental_results']['feature_analysis']
 
+        # Sort features by Random Forest importance
+        sorted_features = sorted(feature_results.items(),
+                                 key=lambda x: x[1]['rf_importance'], reverse=True)
+
