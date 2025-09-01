@@ -860,3 +860,6 @@ class TestFailurePredictionFramework:
         # Initialize the complete framework
         print("\n🚀 Initializing research framework...")
         framework = TestFailurePredictionFramework()
+
+        # Generate the comprehensive research report
+        research_report = framework.generate_research_report()
