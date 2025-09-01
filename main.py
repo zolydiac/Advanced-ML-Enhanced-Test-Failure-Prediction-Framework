@@ -565,3 +565,15 @@ class TestFailurePredictionFramework:
         would work on real data.
         """
         np.random.seed(42)  # Ensures reproducible results
+
+        print("Creating realistic synthetic dataset for model training...")
+
+        data = []
+        base_timestamp = datetime.now() - timedelta(days=365)
+
+        # Different types of tests have different failure characteristics
+        test_categories = {
+            'unit': {'weight': 0.6, 'base_failure_rate': 0.05},  # Unit tests are usually stable
+            'integration': {'weight': 0.25, 'base_failure_rate': 0.12},  # Integration tests more flaky
+            'e2e': {'weight': 0.15, 'base_failure_rate': 0.18}  # End-to-end tests most fragile
+        }
