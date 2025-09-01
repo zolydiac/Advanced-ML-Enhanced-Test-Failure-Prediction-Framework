@@ -54,3 +54,8 @@ class GitHubDataCollector:
     The key insight: tests don't fail randomly - they fail in patterns related
     to code changes, developer behavior, and timing.
     """
+
+    def __init__(self, github_token=None):
+        self.github_token = github_token
+        self.headers = {'Authorization': f'token {github_token}'} if github_token else {}
+        self.rate_limit_remaining = 5000
