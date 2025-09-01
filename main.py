@@ -430,3 +430,10 @@ class EnsemblePredictor:
             # Create data loader for batch processing
             dataset = TensorDataset(X_tensor, y_tensor)
             train_loader = DataLoader(dataset, batch_size=32, shuffle=True)
+
+            deep_scores = {}
+
+            # Initialize and train the neural network
+            deep_nn = DeepTestPredictor(input_dim=X_selected.shape[1])
+            optimizer = optim.Adam(deep_nn.parameters(), lr=0.001)  # Adam is usually a good choice
+            criterion = nn.CrossEntropyLoss()
