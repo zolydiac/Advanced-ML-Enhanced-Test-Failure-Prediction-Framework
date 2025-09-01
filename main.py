@@ -879,3 +879,10 @@ class TestFailurePredictionFramework:
         print("=" * 60)
         model_results = research_report['experimental_results']['model_performance']
 
+        print("Model Performance (AUC Score ± Standard Deviation):")
+        for model_name, metrics in model_results.items():
+            if 'mean_score' in metrics:
+                score = metrics['mean_score']
+                std = metrics.get('std_score', 0)
+                print(f"  {model_name.replace('_', ' ').title():20s}: {score:.3f} ± {std:.3f}")
+
