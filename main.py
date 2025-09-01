@@ -519,3 +519,6 @@ class EnsemblePredictor:
 
         # Combine all results
         all_results = {**traditional_results, **deep_results}
+
+        # Statistical comparison between models
+        statistical_tests = self.statistical_comparison(traditional_results)
