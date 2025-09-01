@@ -715,3 +715,6 @@ class TestFailurePredictionFramework:
         This is crucial for understanding WHY tests fail, not just predicting
         that they will fail. It helps developers know where to focus their efforts.
         """
+        from sklearn.feature_selection import mutual_info_classif
+
+        try:
