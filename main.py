@@ -679,3 +679,6 @@ class TestFailurePredictionFramework:
                            if col not in ['test_id', 'category', 'timestamp', 'test_failed', 'browser_type']]
         X = self.experimental_data[feature_columns].fillna(0).values
         y = self.experimental_data['test_failed'].values
+
+        # Train all models and get performance metrics
+        training_results = self.ensemble_predictor.train(X, y)
