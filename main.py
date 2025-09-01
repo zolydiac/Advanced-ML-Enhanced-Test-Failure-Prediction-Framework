@@ -910,3 +910,19 @@ class TestFailurePredictionFramework:
             mi_score = metrics['mutual_information']
             print(f"  {i + 1:2d}. {feature.replace('_', ' ').title():30s}: RF={rf_score:.3f}, MI={mi_score:.3f}")
 
+        print(f"\n🎯 RESEARCH CONTRIBUTIONS SUMMARY")
+        print("=" * 60)
+        contributions = research_report['experimental_results']['research_impact']
+
+        print("📚 Theoretical Contributions:")
+        for contrib in contributions['theoretical_contributions']:
+            print(f"   • {contrib}")
+
+        print("\n🔬 Empirical Contributions:")
+        for contrib in contributions['empirical_contributions']:
+            print(f"   • {contrib}")
+
+        print("\n🛠️ Practical Contributions:")
+        for contrib in contributions['practical_contributions']:
+            print(f"   • {contrib}")
+
