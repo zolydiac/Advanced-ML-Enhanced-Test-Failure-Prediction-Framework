@@ -1,6 +1,6 @@
 """
 Advanced ML-Enhanced Test Failure Prediction Framework
-Research-Grade Prototype for University of Tokyo Masters Application
+Research-Grade Prototype for University Masters Application
 
 Author: Harrison King
 Institution: University of Kent Canterbury
