@@ -1,15 +1,40 @@
 # Advanced ML-Enhanced Test Failure Prediction Framework
 
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)  
+![License](https://img.shields.io/badge/license-MIT-green)
+
 A machine learning-driven framework for predicting software test failures that combines automated data collection from open-source repositories, advanced ML models, and validation experiments on real-world datasets.
 
 This framework was developed as part of research into software reliability and predictive maintenance, with results presented in the accompanying research paper.
 
+---
+
 ## 📌 Features
 
-* **Automated Data Collection** - Seamlessly gather data from GitHub repositories
-* **ML-Enhanced Prediction** - Advanced machine learning models for accurate test failure detection  
-* **Real-World Validation** - Comprehensive validation pipeline tested on production projects
-* **Research-Backed** - Methodology supported by extensive analysis and visualizations
+* **Automated Data Collection** – Seamlessly gather data from GitHub repositories  
+* **ML-Enhanced Prediction** – Advanced machine learning models for accurate test failure detection  
+* **Real-World Validation** – Comprehensive validation pipeline tested on production projects  
+* **Research-Backed** – Methodology supported by extensive analysis and visualizations  
+* **Reproducibility** – Demo dataset, pinned dependencies, and reproducible experiment scripts
+
+---
+
+## 🚀 Quick Start (Demo)
+
+Run the demo pipeline in under 2 minutes:
+
+```bash
+git clone https://github.com/zolydiac/Advanced-ML-Enhanced-Test-Failure-Prediction-Framework.git
+cd Advanced-ML-Enhanced-Test-Failure-Prediction-Framework
+
+# (Optional) create a virtual environment
+python -m venv .venv
+source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+
+pip install -r requirements.txt
+
+# Run demo with small synthetic dataset
+python main.py --demo
 
 ## 🚀 Installation
 
