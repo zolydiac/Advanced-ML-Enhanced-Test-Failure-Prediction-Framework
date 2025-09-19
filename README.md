@@ -46,6 +46,22 @@ cd Advanced-ML-Enhanced-Test-Failure-Prediction-Framework
 pip install -r requirements.txt
 ```
 
+## 📊 Two Validation Approaches
+
+### 1. Reproducible Demo (`main.py --demo`)
+- **Purpose**: Academic validation, research reproducibility
+- **Data**: Synthetic dataset with controlled parameters
+- **Reproducibility**: Always generates identical results (seeded random generation)
+- **Use Case**: Proving methodology, academic papers, controlled experiments
+
+### 2. Real-World Validator (`enhanced_real_world_validator.py`)
+- **Purpose**: Practical validation, deployment readiness
+- **Data**: Live GitHub repository data via API
+- **Reproducibility**: Results vary as repositories evolve
+- **Use Case**: Demonstrating real-world applicability, production validation
+
+Both approaches complement each other - the synthetic data proves the methodology works under controlled conditions, while real-world data shows it handles messy, practical scenarios.
+
 **(Optional: create a virtual environment before installing.)**
 
 ## 🖥️ Usage
