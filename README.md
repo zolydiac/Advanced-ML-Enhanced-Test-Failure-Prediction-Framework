@@ -19,7 +19,7 @@ This framework was developed as part of research into software reliability and p
 
 ---
 
-## 🚀 Quick Start (Demo)..
+## 🚀 Quick Start (Demo)
 
 Run the demo pipeline in under 2 minutes:
 
@@ -124,3 +124,4 @@ This project is licensed under the MIT License – see the LICENSE file for deta
 * Python, scikit-learn, and PyTorch ecosystems
 * Open-source projects providing datasets
 * Guidance from academic research on software reliability
+* k;
