@@ -19,7 +19,7 @@ This framework was developed as part of research into software reliability and p
 
 ---
 
-## 🚀 Quick Start (Demo)
+## 🚀 Quick Start (Demo).
 
 Run the demo pipeline in under 2 minutes:
 
